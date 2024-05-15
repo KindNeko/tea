@@ -19,9 +19,20 @@ const menu = {
       }
     });
   },
+
+  removeStyle() {
+    this.list.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (e.target.classList.contains("menu__link")) {
+        this.list.classList.remove("menu__list--open");
+        this.overlay.classList.remove("menu-overlay--show");
+      }
+    });
+  },
 };
 
 menu.toggleMenu(".menu__btn");
 menu.toggleMenu(".menu__close-btn");
 menu.smoothBehavior(menu.list, "menu__link");
 menu.smoothBehavior(menu.listFooter, "footer__products-link");
+menu.removeStyle();
